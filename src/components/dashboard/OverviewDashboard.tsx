@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { UserProfile, TaskItem, StudySession, Exam, Language } from '../../types';
+import { UserProfile, TaskItem, StudySession, Exam, CompletedStudyRecord, Language } from '../../types';
 import { translations } from '../../i18n/translations';
 import { AcademicTwin } from '../avatar/AcademicTwin';
 import {
-  Sparkles,
   Clock,
   Briefcase,
   Check,
-  Send,
   Calendar,
   AlertCircle,
   GraduationCap,
   ArrowRight,
   TrendingUp,
+  ShieldAlert,
 } from 'lucide-react';
 
 import succulentImg from '../../assets/images/clay_succulent_plant_1791657339931.jpg';
@@ -21,14 +20,15 @@ import cloudImg from '../../assets/images/clay_happy_cloud_1791657349756.jpg';
 
 const SUCCULENT_IMG = succulentImg;
 const CLOUD_IMG = cloudImg;
+
 interface OverviewDashboardProps {
   profile: UserProfile;
   tasks: TaskItem[];
   sessions: StudySession[];
   exams?: Exam[];
+  studyHistory?: CompletedStudyRecord[];
   onToggleTask: (taskId: string) => void;
   onNavigateTab: (tab: string) => void;
-  onQuickSmartTalk: (prompt: string) => void;
   language?: Language;
 }
 
@@ -37,14 +37,13 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
   tasks,
   sessions,
   exams = [],
+  studyHistory = [],
   onToggleTask,
   onNavigateTab,
-  onQuickSmartTalk,
   language = 'ar',
 }) => {
   const t = translations[language];
   const isRTL = language === 'ar';
-  const [quickInput, setQuickInput] = useState('');
   const [hoveredBarIndex, setHoveredBarIndex] = useState<number | null>(null);
 
   const completedCount = tasks.filter((t) => t.completed).length;
@@ -60,40 +59,73 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
     ...exams.map((e) => e.course),
   ]).size;
 
-  const completedMinutes = sessions
+  // Real logged session hours from completedStudyRecord and completed scheduled sessions
+  const historyMinutes = studyHistory.reduce((acc, h) => acc + (h.durationMinutes || 0), 0);
+  const completedSessionMinutes = sessions
     .filter((s) => s.completed)
     .reduce((acc, s) => acc + s.durationMinutes, 0);
-  const studyHours = Math.round((completedMinutes / 60) * 10) / 10;
+  const totalCompletedMinutes = historyMinutes + completedSessionMinutes;
+  const studyHours = Math.round((totalCompletedMinutes / 60) * 10) / 10;
 
-  // Weekly Activity Bar Chart Data (Sat to Fri or Sun to Sat)
-  const weekDays = isRTL
-    ? [
-        { key: 'sat', label: 'السبت', short: 'سبت', hours: 2.5, tasks: 2 },
-        { key: 'sun', label: 'الأحد', short: 'أحد', hours: 4.0, tasks: 3 },
-        { key: 'mon', label: 'الاثنين', short: 'اثنين', hours: 3.2, tasks: 2 },
-        { key: 'tue', label: 'الثلاثاء', short: 'ثلاثاء', hours: 5.5, tasks: 4 },
-        { key: 'wed', label: 'الأربعاء', short: 'أربعاء', hours: 4.8, tasks: 3 },
-        { key: 'thu', label: 'الخميس', short: 'خميس', hours: 3.0, tasks: 2 },
-        { key: 'fri', label: 'الجمعة', short: 'جمعة', hours: 1.5, tasks: 1 },
-      ]
-    : [
-        { key: 'mon', label: 'Monday', short: 'Mon', hours: 3.5, tasks: 3 },
-        { key: 'tue', label: 'Tuesday', short: 'Tue', hours: 5.0, tasks: 4 },
-        { key: 'wed', label: 'Wednesday', short: 'Wed', hours: 4.2, tasks: 3 },
-        { key: 'thu', label: 'Thursday', short: 'Thu', hours: 3.8, tasks: 3 },
-        { key: 'fri', label: 'Friday', short: 'Fri', hours: 2.0, tasks: 1 },
-        { key: 'sat', label: 'Saturday', short: 'Sat', hours: 4.5, tasks: 4 },
-        { key: 'sun', label: 'Sunday', short: 'Sun', hours: 2.5, tasks: 2 },
-      ];
+  // Calculate real week days activity from user records
+  const dayNamesAr = [
+    { key: 'sat', label: 'السبت', short: 'سبت', dayIndex: 6 },
+    { key: 'sun', label: 'الأحد', short: 'أحد', dayIndex: 0 },
+    { key: 'mon', label: 'الاثنين', short: 'اثنين', dayIndex: 1 },
+    { key: 'tue', label: 'الثلاثاء', short: 'ثلاثاء', dayIndex: 2 },
+    { key: 'wed', label: 'الأربعاء', short: 'أربعاء', dayIndex: 3 },
+    { key: 'thu', label: 'الخميس', short: 'خميس', dayIndex: 4 },
+    { key: 'fri', label: 'الجمعة', short: 'جمعة', dayIndex: 5 },
+  ];
 
-  const maxHours = Math.max(...weekDays.map((d) => d.hours), 6);
+  const dayNamesEn = [
+    { key: 'mon', label: 'Monday', short: 'Mon', dayIndex: 1 },
+    { key: 'tue', label: 'Tuesday', short: 'Tue', dayIndex: 2 },
+    { key: 'wed', label: 'Wednesday', short: 'Wed', dayIndex: 3 },
+    { key: 'thu', label: 'Thursday', short: 'Thu', dayIndex: 4 },
+    { key: 'fri', label: 'Friday', short: 'Fri', dayIndex: 5 },
+    { key: 'sat', label: 'Saturday', short: 'Sat', dayIndex: 6 },
+    { key: 'sun', label: 'Sunday', short: 'Sun', dayIndex: 0 },
+  ];
 
-  const handleQuickSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!quickInput.trim()) return;
-    onQuickSmartTalk(quickInput.trim());
-    setQuickInput('');
-  };
+  const dayTemplates = isRTL ? dayNamesAr : dayNamesEn;
+
+  // Aggregate real study hours & tasks done per day from studyHistory and sessions
+  const weekDays = dayTemplates.map((d) => {
+    let dayMins = 0;
+    let dayTasksCount = 0;
+
+    // From completed study history
+    studyHistory.forEach((rec) => {
+      const recDate = new Date(rec.completedDate || rec.timestamp);
+      if (recDate.getDay() === d.dayIndex) {
+        dayMins += rec.durationMinutes || 0;
+        dayTasksCount += 1;
+      }
+    });
+
+    // From scheduled sessions completed
+    sessions.forEach((sess) => {
+      if (sess.completed && sess.date) {
+        const sessDate = new Date(sess.date);
+        if (sessDate.getDay() === d.dayIndex) {
+          dayMins += sess.durationMinutes || 0;
+          dayTasksCount += 1;
+        }
+      }
+    });
+
+    return {
+      key: d.key,
+      label: d.label,
+      short: d.short,
+      hours: Math.round((dayMins / 60) * 10) / 10,
+      tasks: dayTasksCount,
+    };
+  });
+
+  const totalWeeklyFocusHours = Math.round(weekDays.reduce((acc, d) => acc + d.hours, 0) * 10) / 10;
+  const maxHours = Math.max(...weekDays.map((d) => d.hours), 4);
 
   const handleTaskClick = (taskId: string, wasCompleted: boolean) => {
     onToggleTask(taskId);
@@ -138,7 +170,9 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           {/* Text Section */}
           <div className="space-y-2.5 z-10 text-start ms-5 flex-1">
             <h2 className="text-2xl md:text-3xl font-black tracking-tight text-[#263047] dark:text-[#F3EEF9]">
-              {t.header.welcomeBanner.replace('{name}', profile.name || (profile.gender === 'female' ? 'سارة' : 'خالد'))}
+              {profile.name
+                ? t.header.welcomeBanner.replace('{name}', profile.name)
+                : (isRTL ? 'أهلاً بك في UniRescue!' : 'Welcome to UniRescue!')}
             </h2>
             <p className="text-xs md:text-sm font-bold text-purple-700 dark:text-purple-300 max-w-[220px] leading-relaxed">
               {readyQuestion}
@@ -149,7 +183,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
                 onClick={() => onNavigateTab('rescueMode')}
                 className="clay-button px-4 py-2.5 rounded-2xl bg-white dark:bg-gray-800 text-[#7C55C8] dark:text-purple-300 text-xs font-black shadow-[0_8px_16px_-3px_rgba(124,85,200,0.18)] hover:bg-purple-50 flex items-center gap-2 cursor-pointer"
               >
-                <Sparkles className="w-3.5 h-3.5 text-purple-500" />
+                <ShieldAlert className="w-3.5 h-3.5 text-purple-500" />
                 <span>{t.rescueMode.title}</span>
               </button>
             </div>
@@ -289,9 +323,11 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           {/* Bottom Summary Bar */}
           <div className="pt-3 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center text-xs">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
+              <span className={`w-2.5 h-2.5 rounded-full ${totalWeeklyFocusHours > 0 ? 'bg-green-500' : 'bg-gray-400'}`} />
               <span className="text-[#4B5563] dark:text-gray-300 font-semibold">
-                {isRTL ? 'إجمالي المذاكرة الأسبوعية: 24.5 ساعة' : 'Total weekly focus: 24.5 hours'}
+                {isRTL
+                  ? `إجمالي المذاكرة الأسبوعية: ${totalWeeklyFocusHours} ساعة`
+                  : `Total weekly focus: ${totalWeeklyFocusHours} hours`}
               </span>
             </div>
             <button
@@ -478,27 +514,6 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
         </div>
 
       </div>
-
-      {/* Floating Smart Talk quick prompt bar */}
-      <form onSubmit={handleQuickSubmit} className="clay-card p-4 flex items-center gap-3 bg-white dark:bg-[#1E172A]">
-        <div className="w-10 h-10 rounded-2xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 flex items-center justify-center shrink-0 shadow-xs">
-          <Sparkles className="w-5 h-5" />
-        </div>
-        <input
-          type="text"
-          value={quickInput}
-          onChange={(e) => setQuickInput(e.target.value)}
-          placeholder={t.sections.quickSmartTalk}
-          className="flex-1 bg-transparent text-xs md:text-sm font-medium text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none"
-        />
-        <button
-          type="submit"
-          className="clay-button px-6 py-2.5 rounded-2xl bg-[#C9B6F2] hover:bg-[#bba4e8] text-white font-black text-xs flex items-center gap-1.5 shadow-md cursor-pointer"
-        >
-          <Send className="w-3.5 h-3.5" />
-          <span>{isRTL ? 'إرسال' : 'Send'}</span>
-        </button>
-      </form>
 
     </div>
   );

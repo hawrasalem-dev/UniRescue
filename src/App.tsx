@@ -22,7 +22,6 @@ import { generateDeterministicSchedule } from './utils/scheduler';
 import { AppLayout } from './components/layout/AppLayout';
 import { OverviewDashboard } from './components/dashboard/OverviewDashboard';
 import { TasksView } from './components/tasks/TasksView';
-import { SmartTalkView } from './components/smart/SmartTalkView';
 import { CalendarView } from './components/calendar/CalendarView';
 import { RescueModeView } from './components/rescue/RescueModeView';
 import { ExamsView } from './components/exams/ExamsView';
@@ -120,7 +119,6 @@ export default function App() {
 
   const [currentTab, setCurrentTab] = useState<string>('overview');
   const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
-  const [taskModalInitialMode, setTaskModalInitialMode] = useState<'manual' | 'smart' | 'upload'>('manual');
 
   // Sync DOM attributes with theme, dark mode, language
   useEffect(() => {
@@ -316,10 +314,6 @@ export default function App() {
     setActiveTimer(null);
   };
 
-  const handleQuickSmartTalk = (_quickPrompt: string) => {
-    setCurrentTab('smartTalk');
-  };
-
   // If user has not onboarded yet
   if (!profile.isOnboarded) {
     return (
@@ -352,9 +346,9 @@ export default function App() {
           tasks={tasks}
           sessions={sessions}
           exams={exams}
+          studyHistory={studyHistory}
           onToggleTask={handleToggleTaskComplete}
           onNavigateTab={setCurrentTab}
-          onQuickSmartTalk={handleQuickSmartTalk}
           language={profile.language}
         />
       )}
@@ -365,18 +359,7 @@ export default function App() {
           tasks={tasks}
           onToggleTaskComplete={handleToggleTaskComplete}
           onDeleteTask={handleDeleteTask}
-          onOpenAddModal={() => {
-            setTaskModalInitialMode('manual');
-            setIsTaskModalOpen(true);
-          }}
-          language={profile.language}
-        />
-      )}
-
-      {/* Smart Talk Tab */}
-      {currentTab === 'smartTalk' && (
-        <SmartTalkView
-          onAddTasks={handleAddTasks}
+          onOpenAddModal={() => setIsTaskModalOpen(true)}
           language={profile.language}
         />
       )}
@@ -476,7 +459,6 @@ export default function App() {
         onClose={() => setIsTaskModalOpen(false)}
         onSaveTasks={handleAddTasks}
         language={profile.language}
-        initialMode={taskModalInitialMode}
       />
     </AppLayout>
   );

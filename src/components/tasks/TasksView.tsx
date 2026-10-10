@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { TaskItem, TaskPriority, TaskType, Language } from '../../types';
 import { translations } from '../../i18n/translations';
-import { Plus, Search, CheckCircle2, Circle, Clock, Calendar, Filter, Trash2, Edit3, Sparkles } from 'lucide-react';
+import { Plus, Search, CheckCircle2, Circle, Clock, Calendar, Filter, Trash2, Edit3 } from 'lucide-react';
 
 interface TasksViewProps {
   tasks: TaskItem[];
