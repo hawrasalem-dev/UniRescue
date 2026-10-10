@@ -16,9 +16,11 @@ import {
   TrendingUp,
 } from 'lucide-react';
 
-const SUCCULENT_IMG = '/src/assets/images/clay_succulent_plant_1791657339931.jpg';
-const CLOUD_IMG = '/src/assets/images/clay_happy_cloud_1791657349756.jpg';
+import succulentImg from '../../assets/images/clay_succulent_plant_1791657339931.jpg';
+import cloudImg from '../../assets/images/clay_happy_cloud_1791657349756.jpg';
 
+const SUCCULENT_IMG = succulentImg;
+const CLOUD_IMG = cloudImg;
 interface OverviewDashboardProps {
   profile: UserProfile;
   tasks: TaskItem[];
