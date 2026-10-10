@@ -74,17 +74,17 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
               {gender === 'female' ? '🐱' : '🐺'}
             </div>
             <div>
-              <h1 className="text-xl font-extrabold tracking-tight text-gray-800 dark:text-gray-100">
+              <h1 className="text-xl font-extrabold tracking-tight text-[#263047] dark:text-gray-100">
                 {t.appName}
               </h1>
-              <p className="text-xs text-gray-400">{t.appTagline}</p>
+              <p className="text-xs text-[#6B7280] dark:text-gray-400">{t.appTagline}</p>
             </div>
           </div>
 
           <button
             type="button"
             onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
-            className="px-3 py-1.5 text-xs font-bold rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 transition-colors"
+            className="px-3 py-1.5 text-xs font-bold rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-[#374151] dark:text-gray-200 transition-colors"
           >
             {lang === 'ar' ? 'English (LTR)' : 'العربية (RTL)'}
           </button>
@@ -92,10 +92,10 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
 
         {/* Title */}
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+          <h2 className="text-2xl font-bold text-[#263047] dark:text-gray-100">
             {t.onboarding.title}
           </h2>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          <p className="text-xs text-[#4B5563] dark:text-gray-400 mt-1">
             {t.onboarding.subtitle}
           </p>
         </div>
@@ -114,7 +114,7 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
         <form onSubmit={handleStart} className="space-y-5">
           {/* 1. Student Name */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5">
+            <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1.5">
               {t.onboarding.nameLabel} *
             </label>
             <input
@@ -125,14 +125,14 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
                 setErrorMsg('');
               }}
               placeholder={t.onboarding.namePlaceholder}
-              className="w-full px-4 py-3 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400 text-sm font-medium"
+              className="w-full px-4 py-3 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400 text-sm font-medium"
               autoFocus
             />
           </div>
 
           {/* 2. Gender Selection */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5">
+            <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1.5">
               {t.onboarding.genderLabel} *
             </label>
             <div className="grid grid-cols-2 gap-3">
@@ -141,8 +141,8 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
                 onClick={() => setGender('female')}
                 className={`p-3.5 rounded-2xl border-2 flex items-center justify-center gap-2.5 transition-all ${
                   gender === 'female'
-                    ? 'border-[#F7B9D5] bg-[#FFF0F6] dark:bg-pink-950/30 text-gray-800 dark:text-gray-100 shadow-sm'
-                    : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+                    ? 'border-[#F7B9D5] bg-[#FFF0F6] dark:bg-pink-950/30 text-[#263047] dark:text-gray-100 shadow-sm'
+                    : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-[#4B5563] dark:text-gray-400'
                 }`}
               >
                 <span className="text-xl">👩‍🎓</span>
@@ -154,8 +154,8 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
                 onClick={() => setGender('male')}
                 className={`p-3.5 rounded-2xl border-2 flex items-center justify-center gap-2.5 transition-all ${
                   gender === 'male'
-                    ? 'border-[#3678D8] bg-[#EEF5FF] dark:bg-blue-950/30 text-gray-800 dark:text-gray-100 shadow-sm'
-                    : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+                    ? 'border-[#3678D8] bg-[#EEF5FF] dark:bg-blue-950/30 text-[#263047] dark:text-gray-100 shadow-sm'
+                    : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-[#4B5563] dark:text-gray-400'
                 }`}
               >
                 <span className="text-xl">👨‍🎓</span>
@@ -166,13 +166,13 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
 
           {/* 3. Academic Level */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5">
+            <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1.5">
               {t.onboarding.academicLevelLabel} *
             </label>
             <select
               value={academicLevel}
               onChange={(e) => setAcademicLevel(Number(e.target.value) as AcademicLevel)}
-              className="w-full px-4 py-3 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400 text-xs font-bold"
+              className="w-full px-4 py-3 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-[#263047] dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400 text-xs font-bold"
             >
               {Array.from({ length: 12 }, (_, i) => i + 1).map((lvl) => (
                 <option key={lvl} value={lvl}>

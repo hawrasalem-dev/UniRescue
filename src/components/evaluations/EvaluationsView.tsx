@@ -76,10 +76,10 @@ export const EvaluationsView: React.FC<EvaluationsViewProps> = ({
           📝
         </div>
         <div>
-          <h3 className="text-base font-bold text-gray-800 dark:text-gray-100">
+          <h3 className="text-base font-bold text-[#263047] dark:text-[#F3EEF9]">
             {t.evaluations.noEligibleExams}
           </h3>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-1">
             {isRTL
               ? 'تعتمد التقييمات حصرياً على الاختبارات المسجلة في جدولك.'
               : 'Evaluations connect strictly to exams registered in your timetable.'}
@@ -106,7 +106,7 @@ export const EvaluationsView: React.FC<EvaluationsViewProps> = ({
           <h2 className="text-2xl font-bold tracking-tight text-[#263047] dark:text-[#F3EEF9]">
             {t.evaluations.title}
           </h2>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 max-w-lg">
+          <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-1 max-w-lg">
             {t.evaluations.subtitle}
           </p>
         </div>
@@ -125,13 +125,13 @@ export const EvaluationsView: React.FC<EvaluationsViewProps> = ({
           <form onSubmit={handleSave} className="space-y-4">
             {/* Exam selector */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5">
+              <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1.5">
                 {t.studySession.selectExam}
               </label>
               <select
                 value={activeExamId}
                 onChange={(e) => handleSelectExamForEdit(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-full px-3.5 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-[#263047] dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
               >
                 {exams.map((ex) => (
                   <option key={ex.id} value={ex.id}>
@@ -143,7 +143,7 @@ export const EvaluationsView: React.FC<EvaluationsViewProps> = ({
 
             {/* 3 Emoji Buttons */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                 {isRTL ? 'مستوى صعوبة وتجربة الاختبار:' : 'Perceived Exam Difficulty:'}
               </label>
               <div className="grid grid-cols-3 gap-3">
@@ -196,7 +196,7 @@ export const EvaluationsView: React.FC<EvaluationsViewProps> = ({
 
             {/* Note text */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                 {isRTL ? 'ملاحظات وانطباعك عن الأسئلة:' : 'Reflections & Notes:'}
               </label>
               <textarea
@@ -204,7 +204,7 @@ export const EvaluationsView: React.FC<EvaluationsViewProps> = ({
                 value={noteText}
                 onChange={(e) => setNoteText(e.target.value)}
                 placeholder={t.evaluations.notePlaceholder}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
               />
             </div>
 
@@ -231,7 +231,7 @@ export const EvaluationsView: React.FC<EvaluationsViewProps> = ({
           </h3>
 
           {evaluations.length === 0 ? (
-            <div className="p-8 text-center text-xs text-gray-400">
+            <div className="p-8 text-center text-xs text-[#6B7280] dark:text-gray-400">
               {t.evaluations.emptyState}
             </div>
           ) : (
@@ -247,16 +247,16 @@ export const EvaluationsView: React.FC<EvaluationsViewProps> = ({
                       <span className="font-extrabold text-xs text-purple-700 dark:text-purple-300">
                         {ev.course}
                       </span>
-                      <span className="text-xs text-gray-500">· {ev.examTitle}</span>
+                      <span className="text-xs text-[#4B5563] dark:text-gray-400">· {ev.examTitle}</span>
                     </div>
 
-                    <div className="text-[11px] text-gray-400 flex items-center gap-1 font-mono">
+                    <div className="text-[11px] text-[#6B7280] dark:text-gray-400 flex items-center gap-1 font-mono">
                       <Calendar className="w-3 h-3" />
                       {ev.examDate}
                     </div>
 
                     {ev.note && (
-                      <p className="text-xs text-gray-600 dark:text-gray-300 mt-1 italic">
+                      <p className="text-xs text-[#4B5563] dark:text-gray-300 mt-1 italic">
                         "{ev.note}"
                       </p>
                     )}

@@ -72,7 +72,7 @@ export const TasksView: React.FC<TasksViewProps> = ({
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={t.header.searchPlaceholder}
-            className="w-full ps-10 pe-4 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-medium text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className="w-full ps-10 pe-4 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-medium text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
@@ -104,7 +104,7 @@ export const TasksView: React.FC<TasksViewProps> = ({
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
               filterType === tab.id
                 ? 'bg-purple-600 text-white shadow-xs'
-                : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-750 border border-gray-100 dark:border-gray-700'
+                : 'bg-white dark:bg-gray-800 text-[#4B5563] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-750 border border-gray-100 dark:border-gray-700'
             }`}
           >
             {tab.label}
@@ -119,10 +119,10 @@ export const TasksView: React.FC<TasksViewProps> = ({
             <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 mx-auto flex items-center justify-center">
               <CheckCircle2 className="w-6 h-6" />
             </div>
-            <h3 className="text-base font-bold text-gray-800 dark:text-gray-100">
+            <h3 className="text-base font-bold text-[#263047] dark:text-[#F3EEF9]">
               {isRTL ? 'لا توجد مهام مطابقة' : 'No matching tasks'}
             </h3>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-[#6B7280] dark:text-gray-400">
               {isRTL ? 'أضف مهمة جديدة أو قم بتغيير الفلاتر' : 'Add a new task or adjust filters'}
             </p>
           </div>
@@ -159,20 +159,20 @@ export const TasksView: React.FC<TasksViewProps> = ({
                       {task.priority === 'medium' && t.status.medium}
                       {task.priority === 'low' && t.status.low}
                     </span>
-                    <h3 className={`text-sm font-bold text-gray-800 dark:text-gray-100 ${task.completed ? 'line-through text-gray-400' : ''}`}>
+                    <h3 className={`text-sm font-bold text-[#263047] dark:text-gray-100 ${task.completed ? 'line-through text-[#6B7280] dark:text-gray-500' : ''}`}>
                       {task.title}
                     </h3>
                   </div>
 
                   {task.description && (
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
+                    <p className="text-xs text-[#4B5563] dark:text-gray-400 mt-1 line-clamp-2">
                       {task.description}
                     </p>
                   )}
 
                   {/* Subtasks Progress */}
                   {task.subtasks && task.subtasks.length > 0 && (
-                    <div className="mt-2 flex items-center gap-2 text-[11px] text-gray-400">
+                    <div className="mt-2 flex items-center gap-2 text-[11px] text-[#6B7280] dark:text-gray-400">
                       <span>
                         {task.subtasks.filter((s) => s.completed).length} / {task.subtasks.length}{' '}
                         {isRTL ? 'مهام فرعية' : 'subtasks'}
@@ -185,11 +185,11 @@ export const TasksView: React.FC<TasksViewProps> = ({
               {/* Task Right: Deadline, Duration & Actions */}
               <div className="flex items-center gap-4 self-end md:self-auto shrink-0 text-xs">
                 <div className="flex flex-col text-end">
-                  <span className="font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1 justify-end">
+                  <span className="font-semibold text-[#374151] dark:text-gray-300 flex items-center gap-1 justify-end">
                     <Calendar className="w-3.5 h-3.5 text-gray-400" />
                     {task.deadline?.split('T')[0]}
                   </span>
-                  <span className="text-[11px] text-gray-400 flex items-center gap-1 justify-end font-mono">
+                  <span className="text-[11px] text-[#6B7280] dark:text-gray-400 flex items-center gap-1 justify-end font-mono">
                     <Clock className="w-3 h-3" />
                     {task.durationMinutes} min
                   </span>

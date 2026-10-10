@@ -190,14 +190,14 @@ export const SmartTalkView: React.FC<SmartTalkViewProps> = ({
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             placeholder={t.smartTalk.inputPlaceholder}
-            className="w-full p-4 rounded-2xl bg-gray-50/80 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-800 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 shadow-inner"
+            className="w-full p-4 rounded-2xl bg-gray-50/80 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400 shadow-inner"
           />
 
           {/* Action Bar below textarea */}
           <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
             {/* File Upload Attachment Button */}
             <div className="flex items-center gap-3">
-              <label className="clay-button inline-flex items-center gap-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 text-gray-700 dark:text-gray-200 rounded-2xl text-xs font-bold cursor-pointer transition-colors border border-gray-200 dark:border-gray-700">
+              <label className="clay-button inline-flex items-center gap-2 px-4 py-2.5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 text-[#374151] dark:text-gray-200 rounded-2xl text-xs font-bold cursor-pointer transition-colors border border-gray-200 dark:border-gray-700">
                 <Paperclip className="w-4 h-4 text-purple-600" />
                 <span>{t.smartTalk.uploadButton}</span>
                 <input
@@ -230,7 +230,7 @@ export const SmartTalkView: React.FC<SmartTalkViewProps> = ({
 
           {/* Examples chips */}
           <div className="flex items-center gap-2 mt-4 pt-3 border-t border-gray-100 dark:border-gray-800">
-            <span className="text-[11px] font-bold text-gray-400">
+            <span className="text-[11px] font-bold text-[#6B7280] dark:text-gray-400">
               {isRTL ? 'أمثلة سريعة للتجربة:' : 'Quick examples:'}
             </span>
             <div className="flex flex-wrap gap-2">
@@ -303,7 +303,7 @@ export const SmartTalkView: React.FC<SmartTalkViewProps> = ({
                     type="text"
                     value={task.title}
                     onChange={(e) => handleUpdateTaskField(idx, 'title', e.target.value)}
-                    className="flex-1 font-bold text-sm text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-700 px-3 py-1.5 rounded-xl border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                    className="flex-1 font-bold text-sm text-[#263047] dark:text-gray-100 bg-white dark:bg-gray-700 px-3 py-1.5 rounded-xl border border-gray-200 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-400"
                   />
                   <div className="flex items-center gap-2">
                     <input
@@ -325,13 +325,13 @@ export const SmartTalkView: React.FC<SmartTalkViewProps> = ({
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-xs">
                   <div>
-                    <label className="text-[10px] text-gray-500 font-bold block mb-0.5">
+                    <label className="text-[10px] text-[#6B7280] dark:text-gray-400 font-bold block mb-0.5">
                       {isRTL ? 'النوع' : 'Type'}
                     </label>
                     <select
                       value={task.type}
                       onChange={(e) => handleUpdateTaskField(idx, 'type', e.target.value)}
-                      className="w-full px-2.5 py-1.5 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-xs font-semibold text-gray-800 dark:text-gray-100"
+                      className="w-full px-2.5 py-1.5 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-xs font-semibold text-[#263047] dark:text-gray-100"
                     >
                       <option value="assignment">{t.taskTypes.assignment}</option>
                       <option value="project">{t.taskTypes.project}</option>
@@ -341,13 +341,13 @@ export const SmartTalkView: React.FC<SmartTalkViewProps> = ({
                   </div>
 
                   <div>
-                    <label className="text-[10px] text-gray-500 font-bold block mb-0.5">
+                    <label className="text-[10px] text-[#6B7280] dark:text-gray-400 font-bold block mb-0.5">
                       {isRTL ? 'الأولوية' : 'Priority'}
                     </label>
                     <select
                       value={task.priority}
                       onChange={(e) => handleUpdateTaskField(idx, 'priority', e.target.value)}
-                      className="w-full px-2.5 py-1.5 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-xs font-semibold text-gray-800 dark:text-gray-100"
+                      className="w-full px-2.5 py-1.5 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-xs font-semibold text-[#263047] dark:text-gray-100"
                     >
                       <option value="urgent">{t.status.urgent}</option>
                       <option value="high">{t.status.high}</option>
@@ -357,7 +357,7 @@ export const SmartTalkView: React.FC<SmartTalkViewProps> = ({
                   </div>
 
                   <div>
-                    <label className="text-[10px] text-gray-500 font-bold block mb-0.5">
+                    <label className="text-[10px] text-[#6B7280] dark:text-gray-400 font-bold block mb-0.5">
                       {isRTL ? 'المدة (دقيقة)' : 'Duration (min)'}
                     </label>
                     <input
@@ -365,19 +365,19 @@ export const SmartTalkView: React.FC<SmartTalkViewProps> = ({
                       step="15"
                       value={task.durationMinutes}
                       onChange={(e) => handleUpdateTaskField(idx, 'durationMinutes', Number(e.target.value))}
-                      className="w-full px-2.5 py-1.5 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-xs font-semibold text-gray-800 dark:text-gray-100"
+                      className="w-full px-2.5 py-1.5 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-xs font-semibold text-[#263047] dark:text-gray-100"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[10px] text-gray-500 font-bold block mb-0.5">
+                    <label className="text-[10px] text-[#6B7280] dark:text-gray-400 font-bold block mb-0.5">
                       {isRTL ? 'الموعد' : 'Deadline'}
                     </label>
                     <input
                       type="datetime-local"
                       value={task.deadline ? task.deadline.slice(0, 16) : ''}
                       onChange={(e) => handleUpdateTaskField(idx, 'deadline', e.target.value)}
-                      className="w-full px-2.5 py-1.5 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-xs font-semibold text-gray-800 dark:text-gray-100"
+                      className="w-full px-2.5 py-1.5 rounded-xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-xs font-semibold text-[#263047] dark:text-gray-100"
                     />
                   </div>
                 </div>

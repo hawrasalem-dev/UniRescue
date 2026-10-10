@@ -193,7 +193,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
             className={`px-4 py-2 text-xs font-bold rounded-xl transition-all ${
               activeTab === 'manual'
                 ? 'bg-purple-600 text-white shadow-sm'
-                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                : 'text-[#4B5563] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
           >
             {t.taskModal.manualTitle}
@@ -204,7 +204,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
             className={`px-4 py-2 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all ${
               activeTab === 'smart'
                 ? 'bg-purple-600 text-white shadow-sm'
-                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                : 'text-[#4B5563] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
           >
             <Sparkles className="w-3.5 h-3.5" />
@@ -216,7 +216,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
             className={`px-4 py-2 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all ${
               activeTab === 'upload'
                 ? 'bg-purple-600 text-white shadow-sm'
-                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                : 'text-[#4B5563] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
           >
             <UploadCloud className="w-3.5 h-3.5" />
@@ -236,7 +236,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
           <form onSubmit={handleManualSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="md:col-span-2">
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                   {t.taskModal.titleLabel} *
                 </label>
                 <input
@@ -247,12 +247,12 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                     setValidationError('');
                   }}
                   placeholder={t.taskModal.titlePlaceholder}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                   {t.taskModal.courseLabel} *
                 </label>
                 <input
@@ -263,7 +263,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                     setValidationError('');
                   }}
                   placeholder={t.taskModal.coursePlaceholder}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400 uppercase"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400 uppercase"
                 />
               </div>
             </div>
@@ -271,13 +271,13 @@ export const TaskModal: React.FC<TaskModalProps> = ({
             {/* Type, Priority, Difficulty, Duration */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                   {t.taskModal.typeLabel}
                 </label>
                 <select
                   value={type}
                   onChange={(e) => setType(e.target.value as TaskType)}
-                  className="w-full px-2.5 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-gray-800 dark:text-gray-200"
+                  className="w-full px-2.5 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-[#263047] dark:text-gray-200"
                 >
                   <option value="assignment">{t.taskTypes.assignment}</option>
                   <option value="exam">{t.taskTypes.exam}</option>
@@ -288,13 +288,13 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                   {t.taskModal.priorityLabel}
                 </label>
                 <select
                   value={priority}
                   onChange={(e) => setPriority(e.target.value as TaskPriority)}
-                  className="w-full px-2.5 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-gray-800 dark:text-gray-200"
+                  className="w-full px-2.5 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-[#263047] dark:text-gray-200"
                 >
                   <option value="urgent">{t.status.urgent}</option>
                   <option value="high">{t.status.high}</option>
@@ -304,13 +304,13 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                   {t.taskModal.difficultyLabel}
                 </label>
                 <select
                   value={difficulty}
                   onChange={(e) => setDifficulty(e.target.value as TaskDifficulty)}
-                  className="w-full px-2.5 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-gray-800 dark:text-gray-200"
+                  className="w-full px-2.5 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-[#263047] dark:text-gray-200"
                 >
                   <option value="hard">{t.status.hard}</option>
                   <option value="medium">{t.status.medium}</option>
@@ -319,7 +319,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                   {t.taskModal.durationLabel}
                 </label>
                 <input
@@ -328,7 +328,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                   step="15"
                   value={durationMinutes}
                   onChange={(e) => setDurationMinutes(Number(e.target.value))}
-                  className="w-full px-2.5 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-gray-800 dark:text-gray-200"
+                  className="w-full px-2.5 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-[#263047] dark:text-gray-200"
                 />
               </div>
             </div>
@@ -336,33 +336,33 @@ export const TaskModal: React.FC<TaskModalProps> = ({
             {/* Deadline Date & Time */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                   {t.taskModal.deadlineLabel} (Date)
                 </label>
                 <input
                   type="date"
                   value={deadlineDate}
                   onChange={(e) => setDeadlineDate(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-gray-800 dark:text-gray-200"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-[#263047] dark:text-gray-200"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                   {t.taskModal.deadlineLabel} (Time)
                 </label>
                 <input
                   type="time"
                   value={deadlineTime}
                   onChange={(e) => setDeadlineTime(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-gray-800 dark:text-gray-200"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-[#263047] dark:text-gray-200"
                 />
               </div>
             </div>
 
             {/* Description */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                 {t.taskModal.descLabel}
               </label>
               <textarea
@@ -370,13 +370,13 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Optional notes, chapters, submission links..."
-                className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-medium text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-medium text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
               />
             </div>
 
             {/* Subtasks */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+              <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                 {t.taskModal.subtasksLabel}
               </label>
               <div className="flex gap-2 mb-2">
@@ -385,7 +385,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                   value={newSubtaskTitle}
                   onChange={(e) => setNewSubtaskTitle(e.target.value)}
                   placeholder="e.g. Read chapter 4 or run unit tests"
-                  className="flex-1 px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs text-gray-800 dark:text-gray-200"
+                  className="flex-1 px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs text-[#263047] dark:text-gray-200 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500"
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                       e.preventDefault();
@@ -408,7 +408,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                   {subtasks.map((st) => (
                     <div
                       key={st.id}
-                      className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 text-xs"
+                      className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 text-xs text-[#374151] dark:text-gray-200"
                     >
                       <span>{st.title}</span>
                       <button
@@ -429,7 +429,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2.5 rounded-xl text-xs font-semibold text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                className="px-4 py-2.5 rounded-xl text-xs font-semibold text-[#6B7280] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               >
                 {t.taskModal.cancel}
               </button>
@@ -446,7 +446,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
         {/* TAB 2: Smart Talk Input */}
         {activeTab === 'smart' && (
           <div className="space-y-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-[#6B7280] dark:text-gray-400">
               {t.smartTalk.description}
             </p>
             <textarea
@@ -454,7 +454,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               value={smartPrompt}
               onChange={(e) => setSmartPrompt(e.target.value)}
               placeholder={t.smartTalk.inputPlaceholder}
-              className="w-full px-4 py-3 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+              className="w-full px-4 py-3 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
             />
             <button
               type="button"
@@ -488,8 +488,8 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                       className="p-3 bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-purple-100 dark:border-gray-700 flex items-center justify-between text-xs"
                     >
                       <div>
-                        <div className="font-bold text-gray-800 dark:text-gray-100">{st.title}</div>
-                        <div className="text-gray-500 text-[11px] mt-0.5">
+                        <div className="font-bold text-[#263047] dark:text-gray-100">{st.title}</div>
+                        <div className="text-[#6B7280] dark:text-gray-400 text-[11px] mt-0.5">
                           {st.course} · {st.durationMinutes} min · {st.priority}
                         </div>
                       </div>
@@ -509,10 +509,10 @@ export const TaskModal: React.FC<TaskModalProps> = ({
           <div className="space-y-4">
             <div className="border-2 border-dashed border-purple-300 dark:border-purple-800 rounded-3xl p-8 text-center bg-purple-50/30 dark:bg-purple-950/20">
               <UploadCloud className="w-10 h-10 text-purple-500 mx-auto mb-2" />
-              <p className="text-xs font-bold text-gray-700 dark:text-gray-200 mb-1">
+              <p className="text-xs font-bold text-[#374151] dark:text-gray-200 mb-1">
                 {t.taskModal.dragFileText}
               </p>
-              <p className="text-[11px] text-gray-400 mb-4">PDF, PNG, JPG (Max 15MB)</p>
+              <p className="text-[11px] text-[#6B7280] dark:text-gray-400 mb-4">PDF, PNG, JPG (Max 15MB)</p>
               <label className="clay-button inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-xl text-xs font-bold cursor-pointer hover:bg-purple-700 shadow-sm">
                 <FileText className="w-3.5 h-3.5" />
                 {t.taskModal.browseFiles}
@@ -557,8 +557,8 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                       className="p-3 bg-white dark:bg-gray-800 rounded-xl shadow-xs border border-purple-100 dark:border-gray-700 flex items-center justify-between text-xs"
                     >
                       <div>
-                        <div className="font-bold text-gray-800 dark:text-gray-100">{st.title}</div>
-                        <div className="text-gray-500 text-[11px] mt-0.5">
+                        <div className="font-bold text-[#263047] dark:text-gray-100">{st.title}</div>
+                        <div className="text-[#6B7280] dark:text-gray-400 text-[11px] mt-0.5">
                           {st.course} · {st.durationMinutes} min · {st.priority}
                         </div>
                       </div>

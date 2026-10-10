@@ -53,11 +53,11 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
       {/* Top Banner */}
       <div className="clay-card p-6 md:p-8 flex items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-[#263047] dark:text-[#F3EEF9] flex items-center gap-2">
             <BarChart3 className="w-6 h-6 text-purple-600" />
             {isRTL ? 'إحصائيات الإنجاز والنشاط الأكاديمي' : 'Academic Analytics & Progress'}
           </h2>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-1">
             {isRTL ? 'مؤشرات دقيقة مبنية على المهام وجلسات المذاكرة الفعلية المخزنة لديك' : 'Live metrics computed directly from your tasks and calendar study logs'}
           </p>
         </div>
@@ -66,7 +66,7 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
           <span className="text-3xl font-extrabold text-purple-600 dark:text-purple-400 font-mono">
             {completionRate}%
           </span>
-          <span className="block text-xs font-semibold text-gray-400">
+          <span className="block text-xs font-semibold text-[#6B7280] dark:text-gray-400">
             {t.stats.onTimeRate}
           </span>
         </div>
@@ -76,40 +76,40 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="clay-card p-5">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-gray-400">{t.stats.tasksCompleted}</span>
+            <span className="text-xs font-bold text-[#6B7280] dark:text-gray-400">{t.stats.tasksCompleted}</span>
             <CheckCircle2 className="w-4 h-4 text-green-500" />
           </div>
-          <div className="text-2xl font-extrabold text-gray-800 dark:text-gray-100 font-mono">
-            {completedTasks.length} <span className="text-xs font-normal text-gray-400">/ {tasks.length}</span>
+          <div className="text-2xl font-extrabold text-[#263047] dark:text-white font-mono">
+            {completedTasks.length} <span className="text-xs font-normal text-[#6B7280] dark:text-gray-400">/ {tasks.length}</span>
           </div>
         </div>
 
         <div className="clay-card p-5">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-gray-400">{t.stats.pendingTasks}</span>
+            <span className="text-xs font-bold text-[#6B7280] dark:text-gray-400">{t.stats.pendingTasks}</span>
             <Clock className="w-4 h-4 text-amber-500" />
           </div>
-          <div className="text-2xl font-extrabold text-gray-800 dark:text-gray-100 font-mono">
+          <div className="text-2xl font-extrabold text-[#263047] dark:text-white font-mono">
             {pendingTasks.length}
           </div>
         </div>
 
         <div className="clay-card p-5">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-gray-400">{t.stats.studyHours}</span>
+            <span className="text-xs font-bold text-[#6B7280] dark:text-gray-400">{t.stats.studyHours}</span>
             <TrendingUp className="w-4 h-4 text-purple-500" />
           </div>
-          <div className="text-2xl font-extrabold text-gray-800 dark:text-gray-100 font-mono">
-            {doneHours} <span className="text-xs font-normal text-gray-400">/ {plannedHours} hrs</span>
+          <div className="text-2xl font-extrabold text-[#263047] dark:text-white font-mono">
+            {doneHours} <span className="text-xs font-normal text-[#6B7280] dark:text-gray-400">/ {plannedHours} hrs</span>
           </div>
         </div>
 
         <div className="clay-card p-5">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-gray-400">{isRTL ? 'المهام المتأخرة' : 'Overdue Tasks'}</span>
-            <AlertCircle className={`w-4 h-4 ${overdueTasks.length > 0 ? 'text-red-500' : 'text-gray-400'}`} />
+            <span className="text-xs font-bold text-[#6B7280] dark:text-gray-400">{isRTL ? 'المهام المتأخرة' : 'Overdue Tasks'}</span>
+            <AlertCircle className={`w-4 h-4 ${overdueTasks.length > 0 ? 'text-red-500' : 'text-[#6B7280] dark:text-gray-400'}`} />
           </div>
-          <div className={`text-2xl font-extrabold font-mono ${overdueTasks.length > 0 ? 'text-red-500' : 'text-gray-800 dark:text-gray-100'}`}>
+          <div className={`text-2xl font-extrabold font-mono ${overdueTasks.length > 0 ? 'text-red-500' : 'text-[#263047] dark:text-white'}`}>
             {overdueTasks.length}
           </div>
         </div>
@@ -117,7 +117,7 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
 
       {/* Course Breakdown List */}
       <div className="clay-card p-6 md:p-8 space-y-4">
-        <h3 className="text-base font-bold text-gray-800 dark:text-gray-100 mb-4">
+        <h3 className="text-base font-bold text-[#263047] dark:text-[#F3EEF9] mb-4">
           {t.sections.courseProgress}
         </h3>
 
@@ -127,7 +127,7 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
             return (
               <div key={courseName} className="space-y-1.5">
                 <div className="flex items-center justify-between text-xs font-bold">
-                  <span className="text-gray-800 dark:text-gray-200">{courseName}</span>
+                  <span className="text-[#374151] dark:text-gray-200">{courseName}</span>
                   <span className="text-purple-600 font-mono">
                     {stat.completed}/{stat.total} {isRTL ? 'مهام' : 'tasks'} ({courseRate}%)
                   </span>

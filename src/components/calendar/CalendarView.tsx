@@ -91,7 +91,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                 year: 'numeric',
               })}
             </h2>
-            <p className="text-xs text-gray-400">{t.calendar.scheduleNotice}</p>
+            <p className="text-xs text-[#6B7280] dark:text-gray-400">{t.calendar.scheduleNotice}</p>
           </div>
         </div>
 
@@ -100,19 +100,19 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
           <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 p-1 rounded-2xl">
             <button
               onClick={() => shiftDate(-1)}
-              className="p-2 rounded-xl hover:bg-white dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors cursor-pointer"
+              className="p-2 rounded-xl hover:bg-white dark:hover:bg-gray-700 text-[#4B5563] dark:text-gray-300 transition-colors cursor-pointer"
             >
               {isRTL ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
             </button>
             <button
               onClick={() => setSelectedDate(new Date())}
-              className="px-3.5 py-1 text-xs font-bold text-gray-700 dark:text-gray-200 hover:bg-white dark:hover:bg-gray-700 rounded-xl cursor-pointer"
+              className="px-3.5 py-1 text-xs font-bold text-[#374151] dark:text-gray-200 hover:bg-white dark:hover:bg-gray-700 rounded-xl cursor-pointer"
             >
               {isRTL ? 'اليوم' : 'Today'}
             </button>
             <button
               onClick={() => shiftDate(1)}
-              className="p-2 rounded-xl hover:bg-white dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors cursor-pointer"
+              className="p-2 rounded-xl hover:bg-white dark:hover:bg-gray-700 text-[#4B5563] dark:text-gray-300 transition-colors cursor-pointer"
             >
               {isRTL ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
             </button>
@@ -127,7 +127,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                 className={`px-3.5 py-1.5 text-xs font-bold rounded-xl transition-all cursor-pointer ${
                   viewMode === mode
                     ? 'bg-purple-600 text-white shadow-xs'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900'
+                    : 'text-[#4B5563] dark:text-gray-300 hover:text-[#263047] dark:hover:text-white'
                 }`}
               >
                 {mode === 'day' && t.calendar.dayView}
@@ -162,7 +162,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                   {/* Day Date Header pill on the left */}
                   <div className="lg:w-48 shrink-0 flex lg:flex-col items-center lg:items-start justify-between lg:justify-start gap-2 border-b lg:border-b-0 lg:border-e border-gray-100 dark:border-gray-800 pb-2 lg:pb-0 lg:pe-4">
                     <div>
-                      <div className="text-xs font-bold text-gray-400 uppercase">
+                      <div className="text-xs font-bold text-[#6B7280] dark:text-gray-400 uppercase">
                         {d.toLocaleDateString(language === 'ar' ? 'ar-SA' : 'en-US', { weekday: 'long' })}
                       </div>
                       <div className="text-xl font-extrabold text-[#263047] dark:text-[#F3EEF9]">
@@ -180,7 +180,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                   {/* Day's Events and Study Blocks in a flexible, spacious row */}
                   <div className="flex-1 min-w-0">
                     {totalItems === 0 ? (
-                      <div className="text-xs text-gray-400 py-3 italic">
+                      <div className="text-xs text-[#6B7280] dark:text-gray-400 py-3 italic">
                         {isRTL ? 'لا توجد جلسات أو اختبارات مجدولة' : 'No scheduled items'}
                       </div>
                     ) : (
@@ -196,10 +196,10 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                               <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-red-200/60 dark:bg-red-900/60 text-red-800 dark:text-red-200">
                                 {isRTL ? 'موعد اختبار' : 'Exam'}
                               </span>
-                              <h4 className="font-extrabold text-xs text-gray-800 dark:text-gray-100 mt-1 truncate">
+                              <h4 className="font-extrabold text-xs text-[#263047] dark:text-gray-100 mt-1 truncate">
                                 {ex.course} — {ex.title}
                               </h4>
-                              <span className="text-[11px] text-gray-500 font-mono">
+                              <span className="text-[11px] text-[#4B5563] dark:text-gray-400 font-mono">
                                 ⏰ {ex.time}
                               </span>
                             </div>
@@ -212,7 +212,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                             key={session.id}
                             className={`p-3.5 rounded-2xl border transition-all flex items-start justify-between gap-3 ${
                               session.completed
-                                ? 'bg-green-50/60 dark:bg-green-950/20 border-green-200 text-gray-400'
+                                ? 'bg-green-50/60 dark:bg-green-950/20 border-green-200 text-[#6B7280] dark:text-gray-500'
                                 : 'bg-gray-50 dark:bg-gray-800/80 border-gray-100 dark:border-gray-700 shadow-xs'
                             }`}
                           >
@@ -220,10 +220,10 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                               <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 uppercase">
                                 {session.course}
                               </span>
-                              <h4 className={`font-bold text-xs text-gray-800 dark:text-gray-100 mt-1 line-clamp-1 ${session.completed ? 'line-through text-gray-400' : ''}`}>
+                              <h4 className={`font-bold text-xs text-[#263047] dark:text-gray-100 mt-1 line-clamp-1 ${session.completed ? 'line-through text-[#6B7280] dark:text-gray-500' : ''}`}>
                                 {session.taskTitle}
                               </h4>
-                              <div className="flex items-center gap-2 text-[11px] text-gray-500 mt-1 font-mono">
+                              <div className="flex items-center gap-2 text-[11px] text-[#4B5563] dark:text-gray-400 mt-1 font-mono">
                                 <Clock className="w-3 h-3 text-purple-500" />
                                 <span>{session.startTime} - {session.endTime}</span>
                               </div>
@@ -264,7 +264,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
           <div className="space-y-3">
             {getSessionsForDate(selectedDate.toISOString().split('T')[0]).length === 0 &&
             getExamsForDate(selectedDate.toISOString().split('T')[0]).length === 0 ? (
-              <div className="p-8 text-center text-sm text-gray-400">
+              <div className="p-8 text-center text-sm text-[#6B7280] dark:text-gray-400">
                 {t.calendar.noSessionsToday}
               </div>
             ) : (
@@ -277,10 +277,10 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                     <div className="flex items-center gap-3">
                       <GraduationCap className="w-6 h-6 text-red-600" />
                       <div>
-                        <h4 className="font-extrabold text-sm text-gray-800 dark:text-gray-100">
+                        <h4 className="font-extrabold text-sm text-[#263047] dark:text-gray-100">
                           {ex.course} — {ex.title}
                         </h4>
-                        <span className="text-xs text-gray-500">⏰ {ex.time}</span>
+                        <span className="text-xs text-[#4B5563] dark:text-gray-400">⏰ {ex.time}</span>
                       </div>
                     </div>
                     <span className="px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold">
@@ -303,10 +303,10 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                         <CheckCircle className={`w-5 h-5 ${session.completed ? 'text-green-500 fill-green-50' : ''}`} />
                       </button>
                       <div>
-                        <h4 className={`text-sm font-bold text-gray-800 dark:text-gray-100 ${session.completed ? 'line-through text-gray-400' : ''}`}>
+                        <h4 className={`text-sm font-bold text-[#263047] dark:text-gray-100 ${session.completed ? 'line-through text-[#6B7280] dark:text-gray-500' : ''}`}>
                           {session.taskTitle}
                         </h4>
-                        <p className="text-xs text-gray-500 mt-0.5">
+                        <p className="text-xs text-[#4B5563] dark:text-gray-400 mt-0.5">
                           {session.course} · {session.durationMinutes} min
                         </p>
                       </div>
@@ -326,7 +326,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
       {/* Month View Grid */}
       {viewMode === 'month' && (
         <div className="clay-card p-6 bg-white dark:bg-[#1E172A] overflow-x-auto">
-          <div className="grid grid-cols-7 gap-2 text-center text-xs font-bold text-gray-400 mb-2">
+          <div className="grid grid-cols-7 gap-2 text-center text-xs font-bold text-[#6B7280] dark:text-gray-400 mb-2">
             <span>{t.days.sun}</span>
             <span>{t.days.mon}</span>
             <span>{t.days.tue}</span>
@@ -352,7 +352,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                   }}
                   className="p-3 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700 min-h-[75px] cursor-pointer hover:border-purple-400 transition-colors flex flex-col justify-between"
                 >
-                  <span className="text-xs font-bold text-gray-700 dark:text-gray-300">{i + 1}</span>
+                  <span className="text-xs font-bold text-[#374151] dark:text-gray-300">{i + 1}</span>
                   <div className="space-y-1">
                     {dayExams.length > 0 && (
                       <span className="text-[10px] font-extrabold text-red-600 bg-red-100 dark:bg-red-950/60 px-1 py-0.5 rounded block truncate">

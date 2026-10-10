@@ -88,7 +88,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <h2 className="text-2xl font-bold text-[#263047] dark:text-[#F3EEF9]">
               {t.settings.title}
             </h2>
-            <p className="text-xs text-gray-400 mt-0.5">
+            <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-0.5">
               {isRTL
                 ? 'إدارة هويتك الأكاديمية والسمة واللغة'
                 : 'Manage profile, academic level, and preferences'}
@@ -111,26 +111,26 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* Name */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5">
+              <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1.5">
                 {t.settings.nameLabel}
               </label>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-full px-3.5 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-[#263047] dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
               />
             </div>
 
             {/* Academic Level */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5">
+              <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1.5">
                 {t.settings.levelLabel}
               </label>
               <select
                 value={academicLevel}
                 onChange={(e) => setAcademicLevel(Number(e.target.value) as AcademicLevel)}
-                className="w-full px-3.5 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="w-full px-3.5 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-[#263047] dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
               >
                 {Array.from({ length: 12 }, (_, i) => i + 1).map((lvl) => (
                   <option key={lvl} value={lvl}>
@@ -143,7 +143,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
 
           {/* Gender (Determines theme, mascot, character automatically!) */}
           <div>
-            <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
               {t.settings.genderLabel}
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -159,10 +159,10 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">👩‍🎓</span>
                   <div>
-                    <span className="text-xs font-extrabold text-gray-800 dark:text-gray-100 block">
+                    <span className="text-xs font-extrabold text-[#263047] dark:text-gray-100 block">
                       {t.settings.female}
                     </span>
-                    <span className="text-[11px] text-gray-400">
+                    <span className="text-[11px] text-[#6B7280] dark:text-gray-400">
                       Soft Pink & Lavender
                     </span>
                   </div>
@@ -182,10 +182,10 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">👨‍🎓</span>
                   <div>
-                    <span className="text-xs font-extrabold text-gray-800 dark:text-gray-100 block">
+                    <span className="text-xs font-extrabold text-[#263047] dark:text-gray-100 block">
                       {t.settings.male}
                     </span>
-                    <span className="text-[11px] text-gray-400">
+                    <span className="text-[11px] text-[#6B7280] dark:text-gray-400">
                       Royal Blue & Navy
                     </span>
                   </div>
@@ -208,7 +208,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
               <div className="flex items-center gap-3">
                 {profile.isDarkMode ? <Moon className="w-5 h-5 text-indigo-400" /> : <Sun className="w-5 h-5 text-amber-500" />}
-                <span className="text-xs font-bold text-gray-700 dark:text-gray-200">
+                <span className="text-xs font-bold text-[#374151] dark:text-gray-200">
                   {t.settings.darkMode}
                 </span>
               </div>
@@ -227,7 +227,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
             <div className="flex items-center justify-between p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
               <div className="flex items-center gap-3">
                 <Globe className="w-5 h-5 text-purple-500" />
-                <span className="text-xs font-bold text-gray-700 dark:text-gray-200">
+                <span className="text-xs font-bold text-[#374151] dark:text-gray-200">
                   {t.settings.language}
                 </span>
               </div>
@@ -236,7 +236,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                   type="button"
                   onClick={() => onUpdateProfile({ language: 'ar' })}
                   className={`px-3 py-1 text-xs font-bold rounded-lg transition-all ${
-                    profile.language === 'ar' ? 'bg-purple-600 text-white shadow-xs' : 'text-gray-600 dark:text-gray-300'
+                    profile.language === 'ar' ? 'bg-purple-600 text-white shadow-xs' : 'text-[#4B5563] dark:text-gray-300'
                   }`}
                 >
                   العربية
@@ -245,7 +245,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                   type="button"
                   onClick={() => onUpdateProfile({ language: 'en' })}
                   className={`px-3 py-1 text-xs font-bold rounded-lg transition-all ${
-                    profile.language === 'en' ? 'bg-purple-600 text-white shadow-xs' : 'text-gray-600 dark:text-gray-300'
+                    profile.language === 'en' ? 'bg-purple-600 text-white shadow-xs' : 'text-[#4B5563] dark:text-gray-300'
                   }`}
                 >
                   English

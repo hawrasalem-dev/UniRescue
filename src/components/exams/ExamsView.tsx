@@ -153,7 +153,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
             <h2 className="text-2xl font-bold tracking-tight text-[#263047] dark:text-[#F3EEF9]">
               {t.exams.title}
             </h2>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 max-w-md">
+            <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-1 max-w-md">
               {t.exams.subtitle}
             </p>
           </div>
@@ -179,10 +179,10 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
             📚
           </div>
           <div>
-            <h3 className="text-base font-bold text-gray-800 dark:text-gray-100">
+            <h3 className="text-base font-bold text-[#263047] dark:text-[#F3EEF9]">
               {t.exams.emptyState}
             </h3>
-            <p className="text-xs text-gray-400 mt-1">
+            <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-1">
               {isRTL
                 ? 'أضف أول اختبار لتوزيع الشباتر وتفعيل المؤقت الذكي وجلسات المذاكرة المركزة.'
                 : 'Add your first exam to distribute chapters and enable focused study sessions.'}
@@ -237,7 +237,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
                   </div>
 
                   {/* Exam Date & Time */}
-                  <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 font-medium">
+                  <div className="flex items-center gap-4 text-xs text-[#6B7280] dark:text-gray-400 font-medium">
                     <span className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5 text-purple-500" />
                       {exam.date}
@@ -250,7 +250,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
 
                   {/* Chapters Progress Bar */}
                   <div className="space-y-1.5">
-                    <div className="flex items-center justify-between text-xs font-bold text-gray-700 dark:text-gray-300">
+                    <div className="flex items-center justify-between text-xs font-bold text-[#374151] dark:text-gray-300">
                       <span>{t.exams.chaptersProgress.replace('{done}', String(completedCount)).replace('{total}', String(totalCount))}</span>
                       <span className="font-mono text-purple-600">{progressPct}%</span>
                     </div>
@@ -270,15 +270,15 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
                         onClick={() => onToggleChapter(exam.id, chap.id)}
                         className={`p-2 rounded-xl border text-xs cursor-pointer flex items-center justify-between gap-2 transition-all ${
                           chap.completed
-                            ? 'bg-green-50/70 dark:bg-green-950/20 border-green-200 text-gray-400 line-through'
-                            : 'bg-gray-50 dark:bg-gray-800/60 border-gray-100 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:border-purple-200'
+                            ? 'bg-green-50/70 dark:bg-green-950/20 border-green-200 text-[#6B7280] dark:text-gray-400 line-through'
+                            : 'bg-gray-50 dark:bg-gray-800/60 border-gray-100 dark:border-gray-700 text-[#374151] dark:text-gray-200 hover:border-purple-200'
                         }`}
                       >
                         <span className="truncate">{chap.name}</span>
                         {chap.completed ? (
                           <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
                         ) : (
-                          <Circle className="w-4 h-4 text-gray-300 shrink-0" />
+                          <Circle className="w-4 h-4 text-gray-400 shrink-0" />
                         )}
                       </div>
                     ))}
@@ -307,7 +307,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
             </h3>
             <table className="w-full text-xs text-start">
               <thead>
-                <tr className="border-b border-gray-100 dark:border-gray-800 text-gray-400 font-bold">
+                <tr className="border-b border-gray-100 dark:border-gray-800 text-[#6B7280] dark:text-gray-400 font-bold">
                   <th className="pb-3 text-start">{t.exams.tableHeaders.course}</th>
                   <th className="pb-3 text-start">{t.exams.tableHeaders.title}</th>
                   <th className="pb-3 text-start">{t.exams.tableHeaders.dateTime}</th>
@@ -325,13 +325,13 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
                       <td className="py-3 font-extrabold text-purple-700 dark:text-purple-300">
                         {ex.course}
                       </td>
-                      <td className="py-3 font-semibold text-gray-800 dark:text-gray-200">
+                      <td className="py-3 font-semibold text-[#263047] dark:text-gray-200">
                         {ex.title}
                       </td>
-                      <td className="py-3 text-gray-500 dark:text-gray-400 font-mono">
+                      <td className="py-3 text-[#6B7280] dark:text-gray-400 font-mono">
                         {ex.date} · {ex.time}
                       </td>
-                      <td className="py-3 font-mono">
+                      <td className="py-3 font-mono text-[#4B5563] dark:text-gray-300">
                         {completedCount}/{ex.chapters.length}
                       </td>
                       <td className="py-3">
@@ -371,7 +371,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
               <X className="w-5 h-5" />
             </button>
 
-            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+            <h3 className="text-lg font-bold text-[#263047] dark:text-[#F3EEF9] mb-4 flex items-center gap-2">
               <GraduationCap className="w-5 h-5 text-purple-600" />
               {t.exams.addExam}
             </h3>
@@ -385,7 +385,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                     {t.exams.courseLabel} *
                   </label>
                   <input
@@ -393,12 +393,12 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
                     value={course}
                     onChange={(e) => setCourse(e.target.value)}
                     placeholder={t.exams.coursePlaceholder}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                     {t.exams.titleLabel}
                   </label>
                   <input
@@ -406,33 +406,33 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder={t.exams.titlePlaceholder}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-medium text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                     {t.exams.dateLabel}
                   </label>
                   <input
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-gray-800 dark:text-gray-100"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-[#263047] dark:text-gray-100"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                     {t.exams.timeLabel}
                   </label>
                   <input
                     type="time"
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-gray-800 dark:text-gray-100"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-semibold text-[#263047] dark:text-gray-100"
                   />
                 </div>
               </div>
@@ -440,7 +440,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
               {/* Number of Chapters & Dynamic Fields */}
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="text-xs font-bold text-gray-700 dark:text-gray-300">
+                  <label className="text-xs font-bold text-[#374151] dark:text-gray-300">
                     {t.exams.chaptersCountLabel} ({chaptersCount})
                   </label>
                   <div className="flex items-center gap-1">
@@ -452,7 +452,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
                         className={`px-2 py-0.5 rounded-lg text-xs font-bold ${
                           chaptersCount === c
                             ? 'bg-purple-600 text-white'
-                            : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300'
+                            : 'bg-gray-100 dark:bg-gray-800 text-[#4B5563] dark:text-gray-300'
                         }`}
                       >
                         {c}
@@ -464,7 +464,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
                 <div className="space-y-2 max-h-48 overflow-y-auto p-1">
                   {chapterNames.map((name, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <span className="w-6 text-center text-xs font-bold text-gray-400">
+                      <span className="w-6 text-center text-xs font-bold text-[#6B7280] dark:text-gray-400">
                         {i + 1}.
                       </span>
                       <input
@@ -472,7 +472,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
                         value={name}
                         onChange={(e) => handleChapterNameChange(i, e.target.value)}
                         placeholder={`Chapter ${i + 1}`}
-                        className="flex-1 px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                        className="flex-1 px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
                       />
                     </div>
                   ))}
@@ -481,7 +481,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
 
               {/* Notes */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">
+                <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1">
                   {t.exams.notesLabel}
                 </label>
                 <textarea
@@ -489,7 +489,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="e.g. Focus on past papers and slides..."
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
                 />
               </div>
 
@@ -497,7 +497,7 @@ export const ExamsView: React.FC<ExamsViewProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className="px-4 py-2 rounded-xl text-xs font-semibold text-[#6B7280] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
                   {t.exams.cancel}
                 </button>

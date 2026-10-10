@@ -165,7 +165,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="md:hidden p-2 rounded-2xl bg-white dark:bg-gray-800 shadow-md text-gray-700 dark:text-gray-200 border border-white/60"
+                className="md:hidden p-2 rounded-2xl bg-white dark:bg-gray-800 shadow-md text-[#263047] dark:text-gray-200 border border-white/60"
               >
                 <Menu className="w-5 h-5" />
               </button>
@@ -184,7 +184,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
               <input
                 type="text"
                 placeholder={t.header.searchPlaceholder}
-                className="w-full ps-11 pe-4 py-2.5 rounded-full bg-[#FBF9F7] dark:bg-[#161F2E] border border-gray-200/80 dark:border-gray-700/80 text-xs text-gray-800 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.04)] transition-all"
+                className="w-full ps-11 pe-4 py-2.5 rounded-full bg-[#FBF9F7] dark:bg-[#161F2E] border border-gray-200/80 dark:border-gray-700/80 text-xs text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.04)] transition-all"
               />
             </div>
 
@@ -195,7 +195,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
               <button
                 type="button"
                 onClick={() => onTabChange('rescueMode')}
-                className="w-11 h-11 rounded-full bg-white dark:bg-gray-800 shadow-[0_6px_14px_-2px_rgba(0,0,0,0.06),inset_0_1.5px_2px_rgba(255,255,255,0.9)] border border-gray-200/70 dark:border-gray-700/70 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:scale-105 active:scale-95 transition-all relative cursor-pointer"
+                className="w-11 h-11 rounded-full bg-white dark:bg-gray-800 shadow-[0_6px_14px_-2px_rgba(0,0,0,0.06),inset_0_1.5px_2px_rgba(255,255,255,0.9)] border border-gray-200/70 dark:border-gray-700/70 flex items-center justify-center text-[#374151] dark:text-gray-300 hover:scale-105 active:scale-95 transition-all relative cursor-pointer"
                 title={t.header.notifications}
               >
                 <Bell className="w-4 h-4" />
@@ -208,17 +208,17 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
               <button
                 type="button"
                 onClick={onToggleDarkMode}
-                className="w-11 h-11 rounded-full bg-white dark:bg-gray-800 shadow-[0_6px_14px_-2px_rgba(0,0,0,0.06),inset_0_1.5px_2px_rgba(255,255,255,0.9)] border border-gray-200/70 dark:border-gray-700/70 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                className="w-11 h-11 rounded-full bg-white dark:bg-gray-800 shadow-[0_6px_14px_-2px_rgba(0,0,0,0.06),inset_0_1.5px_2px_rgba(255,255,255,0.9)] border border-gray-200/70 dark:border-gray-700/70 flex items-center justify-center text-[#374151] dark:text-gray-300 hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 title="Toggle Dark Mode"
               >
-                {profile.isDarkMode ? <Sun className="w-4 h-4 text-amber-500" /> : <Moon className="w-4 h-4 text-gray-500" />}
+                {profile.isDarkMode ? <Sun className="w-4 h-4 text-amber-500" /> : <Moon className="w-4 h-4 text-[#374151]" />}
               </button>
 
               {/* Language Switch */}
               <button
                 type="button"
                 onClick={onToggleLanguage}
-                className="px-3.5 h-11 rounded-full bg-white dark:bg-gray-800 shadow-[0_6px_14px_-2px_rgba(0,0,0,0.06),inset_0_1.5px_2px_rgba(255,255,255,0.9)] border border-gray-200/70 dark:border-gray-700/70 text-xs font-black text-gray-700 dark:text-gray-200 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                className="px-3.5 h-11 rounded-full bg-white dark:bg-gray-800 shadow-[0_6px_14px_-2px_rgba(0,0,0,0.06),inset_0_1.5px_2px_rgba(255,255,255,0.9)] border border-gray-200/70 dark:border-gray-700/70 text-xs font-black text-[#263047] dark:text-gray-200 hover:scale-105 active:scale-95 transition-all cursor-pointer"
               >
                 {profile.language === 'ar' ? 'EN' : 'عربي'}
               </button>

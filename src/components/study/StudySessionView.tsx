@@ -363,7 +363,7 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
               <span className="text-5xl md:text-6xl font-extrabold font-mono text-[#263047] dark:text-white tracking-wider">
                 {formatTime(displaySeconds)}
               </span>
-              <span className="text-xs font-semibold text-gray-400 mt-2 uppercase tracking-widest">
+              <span className="text-xs font-semibold text-[#6B7280] dark:text-gray-400 mt-2 uppercase tracking-widest">
                 {isBreakActive ? 'Break Time' : 'Focus Time'}
               </span>
             </div>
@@ -456,7 +456,7 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
 
             {/* Select Exam */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5">
+              <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1.5">
                 {t.studySession.selectExam}
               </label>
               <select
@@ -469,7 +469,7 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
                   }
                 }}
                 disabled={isTimerRunning}
-                className="w-full px-3.5 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-60"
+                className="w-full px-3.5 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-[#263047] dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-60"
               >
                 {exams.map((ex) => (
                   <option key={ex.id} value={ex.id}>
@@ -481,14 +481,14 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
 
             {/* Select Chapter */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5">
+              <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-1.5">
                 {t.studySession.selectChapter}
               </label>
               <select
                 value={selectedChapterId}
                 onChange={(e) => setSelectedChapterId(e.target.value)}
                 disabled={isTimerRunning || !selectedExam}
-                className="w-full px-3.5 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-60"
+                className="w-full px-3.5 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-[#263047] dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-60"
               >
                 {selectedExam?.chapters.map((chap) => (
                   <option key={chap.id} value={chap.id}>
@@ -500,17 +500,17 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
 
             {/* Duration Selector: Hours and Minutes */}
             <div>
-              <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                 {t.studySession.durationLabel}
               </label>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <span className="text-[11px] text-gray-400 block mb-1">{t.studySession.hours}</span>
+                  <span className="text-[11px] text-[#6B7280] dark:text-gray-400 block mb-1">{t.studySession.hours}</span>
                   <select
                     value={durationHours}
                     onChange={(e) => setDurationHours(Number(e.target.value))}
                     disabled={isTimerRunning}
-                    className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-gray-800 dark:text-gray-100 disabled:opacity-60"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-[#263047] dark:text-gray-100 disabled:opacity-60"
                   >
                     {[0, 1, 2, 3, 4].map((h) => (
                       <option key={h} value={h}>
@@ -521,12 +521,12 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
                 </div>
 
                 <div>
-                  <span className="text-[11px] text-gray-400 block mb-1">{t.studySession.minutes}</span>
+                  <span className="text-[11px] text-[#6B7280] dark:text-gray-400 block mb-1">{t.studySession.minutes}</span>
                   <select
                     value={durationMinutes}
                     onChange={(e) => setDurationMinutes(Number(e.target.value))}
                     disabled={isTimerRunning}
-                    className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-gray-800 dark:text-gray-100 disabled:opacity-60"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-bold text-[#263047] dark:text-gray-100 disabled:opacity-60"
                   >
                     {[15, 25, 30, 45, 50, 60].map((m) => (
                       <option key={m} value={m}>
@@ -541,7 +541,7 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
 
           {/* Quick preset chips */}
           <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
-            <span className="text-[11px] font-bold text-gray-400 block mb-2">
+            <span className="text-[11px] font-bold text-[#6B7280] dark:text-gray-400 block mb-2">
               {isRTL ? 'فترات سريعة موصى بها:' : 'Recommended Focus Blocks:'}
             </span>
             <div className="flex flex-wrap gap-2">
@@ -572,7 +572,7 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
         </h3>
 
         {completedHistory.length === 0 ? (
-          <div className="p-6 text-center text-xs text-gray-400">
+          <div className="p-6 text-center text-xs text-[#6B7280] dark:text-gray-400">
             {t.studySession.emptySessions}
           </div>
         ) : (
@@ -587,10 +587,10 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
                     ✓
                   </div>
                   <div>
-                    <span className="font-extrabold text-gray-800 dark:text-gray-100 block">
+                    <span className="font-extrabold text-[#263047] dark:text-gray-100 block">
                       {rec.course} — {rec.chapterName}
                     </span>
-                    <span className="text-[11px] text-gray-400">{rec.completedDate}</span>
+                    <span className="text-[11px] text-[#6B7280] dark:text-gray-400">{rec.completedDate}</span>
                   </div>
                 </div>
 
@@ -614,11 +614,11 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
               🎉
             </div>
 
-            <h3 className="text-lg font-extrabold text-gray-800 dark:text-gray-100">
+            <h3 className="text-lg font-extrabold text-[#263047] dark:text-[#F3EEF9]">
               {t.studySession.timerCompleteTitle}
             </h3>
 
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-[#4B5563] dark:text-gray-400">
               {t.studySession.chapterCompleteQuestion}
             </p>
 
@@ -658,7 +658,7 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
               ☕
             </div>
 
-            <h3 className="text-base font-bold text-gray-800 dark:text-gray-100">
+            <h3 className="text-base font-bold text-[#263047] dark:text-[#F3EEF9]">
               {t.studySession.breakDurationPrompt}
             </h3>
 
@@ -678,7 +678,7 @@ export const StudySessionView: React.FC<StudySessionViewProps> = ({
             <button
               type="button"
               onClick={() => setShowBreakSelector(false)}
-              className="text-xs font-semibold text-gray-400 hover:text-gray-600 pt-2 block mx-auto"
+              className="text-xs font-semibold text-[#6B7280] dark:text-gray-400 hover:text-[#263047] dark:hover:text-white pt-2 block mx-auto"
             >
               {isRTL ? 'إلغاء' : 'Cancel'}
             </button>

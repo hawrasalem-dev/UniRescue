@@ -176,7 +176,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                 className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-colors ${
                   activeTab === 'hair'
                     ? 'bg-purple-500 text-white shadow-sm'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    : 'text-[#4B5563] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
               >
                 {t.twinStudio.hairStyle} & {t.twinStudio.hairColor}
@@ -187,7 +187,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                 className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-colors ${
                   activeTab === 'face'
                     ? 'bg-purple-500 text-white shadow-sm'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    : 'text-[#4B5563] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
               >
                 {t.twinStudio.skinTone} & {t.twinStudio.eyeColor}
@@ -198,7 +198,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                 className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-colors ${
                   activeTab === 'clothes'
                     ? 'bg-purple-500 text-white shadow-sm'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    : 'text-[#4B5563] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
               >
                 {t.twinStudio.outfitStyle}
@@ -209,7 +209,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                 className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-colors ${
                   activeTab === 'accessories'
                     ? 'bg-purple-500 text-white shadow-sm'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    : 'text-[#4B5563] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
               >
                 {t.twinStudio.glasses} & {t.twinStudio.accessory}
@@ -220,7 +220,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
             {activeTab === 'hair' && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                     {t.twinStudio.hairColor}
                   </label>
                   <div className="flex flex-wrap gap-2.5">
@@ -242,7 +242,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                     {t.twinStudio.hairStyle} ({hairstyles.length} options)
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -254,7 +254,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                         className={`p-3 rounded-2xl border text-xs font-semibold text-start transition-all ${
                           avatar.hairStyle === hs.id
                             ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300'
-                            : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                            : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-[#374151] dark:text-gray-300'
                         }`}
                       >
                         {isRTL ? hs.labelAr : hs.labelEn}
@@ -265,7 +265,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
 
                 {avatar.gender === 'male' && (
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                       {t.twinStudio.facialHair}
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -277,7 +277,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                           className={`p-2.5 rounded-xl border text-xs font-semibold text-start transition-all ${
                             avatar.facialHair === fh.id
                               ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300'
-                              : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                              : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-[#374151] dark:text-gray-300'
                           }`}
                         >
                           {isRTL ? fh.labelAr : fh.labelEn}
@@ -293,7 +293,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
             {activeTab === 'face' && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                     {t.twinStudio.skinTone}
                   </label>
                   <div className="flex flex-wrap gap-3">
@@ -315,7 +315,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                     {t.twinStudio.eyeColor}
                   </label>
                   <div className="flex flex-wrap gap-3">
@@ -342,7 +342,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
             {activeTab === 'clothes' && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                     {t.twinStudio.outfitColor}
                   </label>
                   <div className="flex flex-wrap gap-3">
@@ -364,7 +364,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                     {t.twinStudio.outfitStyle}
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -376,7 +376,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                         className={`p-3 rounded-2xl border text-xs font-semibold text-start transition-all ${
                           avatar.outfitStyle === os.id
                             ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300'
-                            : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                            : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-[#374151] dark:text-gray-300'
                         }`}
                       >
                         {isRTL ? os.labelAr : os.labelEn}
@@ -391,7 +391,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
             {activeTab === 'accessories' && (
               <div className="space-y-6">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                     {t.twinStudio.glasses}
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -403,7 +403,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                         className={`p-3 rounded-2xl border text-xs font-semibold text-start transition-all ${
                           avatar.glasses === ey.id
                             ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300'
-                            : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                            : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-[#374151] dark:text-gray-300'
                         }`}
                       >
                         {isRTL ? ey.labelAr : ey.labelEn}
@@ -413,7 +413,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">
+                  <label className="block text-xs font-bold text-[#374151] dark:text-gray-300 mb-2">
                     {t.twinStudio.accessory}
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -425,7 +425,7 @@ export const TwinStudio: React.FC<TwinStudioProps> = ({
                         className={`p-3 rounded-2xl border text-xs font-semibold text-start transition-all ${
                           avatar.accessory === ac.id
                             ? 'border-purple-500 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300'
-                            : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                            : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-[#374151] dark:text-gray-300'
                         }`}
                       >
                         {isRTL ? ac.labelAr : ac.labelEn}

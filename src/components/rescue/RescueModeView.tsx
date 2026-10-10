@@ -112,7 +112,7 @@ export const RescueModeView: React.FC<RescueModeViewProps> = ({
                   {plan.status === 'critical' ? t.rescueMode.overloadBadge : t.rescueMode.balancedBadge}
                 </span>
               </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 max-w-xl">
+              <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-1 max-w-xl">
                 {t.rescueMode.subtitle}
               </p>
             </div>
@@ -122,10 +122,10 @@ export const RescueModeView: React.FC<RescueModeViewProps> = ({
           <div className="flex items-center gap-3 bg-white dark:bg-gray-800 p-3 pe-4 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm shrink-0">
             <AcademicTwin gender={gender} pose="welcome" size="sm" />
             <div className="text-xs">
-              <span className="font-extrabold text-gray-800 dark:text-gray-200 block">
+              <span className="font-extrabold text-[#263047] dark:text-gray-200 block">
                 {isRTL ? 'نصيحة توأمك الأكاديمي:' : 'Companion Advice:'}
               </span>
-              <p className="text-gray-500 text-[11px] max-w-xs truncate">
+              <p className="text-[#6B7280] dark:text-gray-400 text-[11px] max-w-xs truncate">
                 {twinAiAdvice || (isRTL ? plan.twinAdviceAr : plan.twinAdviceEn)}
               </p>
             </div>
@@ -136,7 +136,7 @@ export const RescueModeView: React.FC<RescueModeViewProps> = ({
 
       {/* 1-Click Quick Rescue Presets */}
       <div className="clay-card p-6 bg-white dark:bg-[#1E172A] space-y-4">
-        <h3 className="text-xs font-bold text-gray-500 dark:text-gray-400">
+        <h3 className="text-xs font-bold text-[#6B7280] dark:text-gray-400">
           {t.rescueMode.presetsTitle}
         </h3>
 
@@ -152,7 +152,7 @@ export const RescueModeView: React.FC<RescueModeViewProps> = ({
               className={`p-3.5 rounded-2xl border text-xs font-bold text-start transition-all flex items-center justify-between gap-2 ${
                 activePreset === preset.id
                   ? 'border-purple-500 bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 shadow-xs'
-                  : 'border-gray-200 dark:border-gray-700 bg-gray-50/60 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-100'
+                  : 'border-gray-200 dark:border-gray-700 bg-gray-50/60 dark:bg-gray-800 text-[#374151] dark:text-gray-200 hover:bg-gray-100'
               }`}
             >
               <span>{preset.text}</span>
@@ -168,7 +168,7 @@ export const RescueModeView: React.FC<RescueModeViewProps> = ({
             value={customQuery}
             onChange={(e) => setCustomQuery(e.target.value)}
             placeholder={isRTL ? 'اكتب ظرفك الطارئ وسنقوم بإنقاذ جدولك فوراً...' : 'Describe your academic emergency...'}
-            className="flex-1 px-4 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-medium text-gray-800 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className="flex-1 px-4 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-medium text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
             onKeyDown={(e) => {
               if (e.key === 'Enter' && customQuery.trim()) {
                 handleRunRescue(customQuery);
@@ -189,26 +189,26 @@ export const RescueModeView: React.FC<RescueModeViewProps> = ({
       {/* Numerical Capacity Balance */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="clay-card p-5 bg-white dark:bg-[#1E172A]">
-          <div className="text-xs font-bold text-gray-400 mb-1">{t.rescueMode.hoursNeeded}</div>
+          <div className="text-xs font-bold text-[#6B7280] dark:text-gray-400 mb-1">{t.rescueMode.hoursNeeded}</div>
           <div className="text-2xl font-extrabold text-[#263047] dark:text-gray-100 font-mono">
-            {plan.hoursNeeded} <span className="text-xs font-normal text-gray-500">{isRTL ? 'ساعات' : 'hrs'}</span>
+            {plan.hoursNeeded} <span className="text-xs font-normal text-[#6B7280] dark:text-gray-400">{isRTL ? 'ساعات' : 'hrs'}</span>
           </div>
         </div>
 
         <div className="clay-card p-5 bg-white dark:bg-[#1E172A]">
-          <div className="text-xs font-bold text-gray-400 mb-1">{t.rescueMode.hoursAvailable}</div>
+          <div className="text-xs font-bold text-[#6B7280] dark:text-gray-400 mb-1">{t.rescueMode.hoursAvailable}</div>
           <div className="text-2xl font-extrabold text-purple-600 dark:text-purple-400 font-mono">
-            {plan.hoursAvailable} <span className="text-xs font-normal text-gray-500">{isRTL ? 'ساعات' : 'hrs'}</span>
+            {plan.hoursAvailable} <span className="text-xs font-normal text-[#6B7280] dark:text-gray-400">{isRTL ? 'ساعات' : 'hrs'}</span>
           </div>
         </div>
 
         <div className="clay-card p-5 bg-white dark:bg-[#1E172A]">
-          <div className="text-xs font-bold text-gray-400 mb-1">
+          <div className="text-xs font-bold text-[#6B7280] dark:text-gray-400 mb-1">
             {isRTL ? 'العجز الزمني التقديري' : 'Workload Deficit'}
           </div>
           <div className={`text-2xl font-extrabold font-mono ${plan.deficitHours > 0 ? 'text-red-500' : 'text-green-500'}`}>
             {plan.deficitHours > 0 ? `-${plan.deficitHours}` : '0'}{' '}
-            <span className="text-xs font-normal text-gray-500">{isRTL ? 'ساعات' : 'hrs'}</span>
+            <span className="text-xs font-normal text-[#6B7280] dark:text-gray-400">{isRTL ? 'ساعات' : 'hrs'}</span>
           </div>
         </div>
       </div>
@@ -219,13 +219,13 @@ export const RescueModeView: React.FC<RescueModeViewProps> = ({
           <h3 className="text-base font-bold text-[#263047] dark:text-[#F3EEF9]">
             {isRTL ? 'خطة الأولويات المقترحة بدون إرهاق' : 'Recommended Recovery Actions'}
           </h3>
-          <span className="text-xs text-gray-400">
+          <span className="text-xs text-[#6B7280] dark:text-gray-400">
             {plan.actions.length} {isRTL ? 'مهام قيد التحليل' : 'tasks analyzed'}
           </span>
         </div>
 
         {plan.actions.length === 0 ? (
-          <div className="p-8 text-center text-xs text-gray-400">
+          <div className="p-8 text-center text-xs text-[#6B7280] dark:text-gray-400">
             {t.rescueMode.emptyRescue}
           </div>
         ) : (
@@ -253,11 +253,11 @@ export const RescueModeView: React.FC<RescueModeViewProps> = ({
                       {act.action === 'break_down' && (isRTL ? 'تجزئة إلى فترات' : 'Break Down')}
                       {act.action === 'lighten' && (isRTL ? 'تركيز على الأساسيات' : 'Core Focus')}
                     </span>
-                    <h4 className="font-bold text-sm text-gray-800 dark:text-gray-100">
+                    <h4 className="font-bold text-sm text-[#263047] dark:text-gray-100">
                       {act.taskTitle}
                     </h4>
                   </div>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  <p className="text-xs text-[#4B5563] dark:text-gray-400 mt-1">
                     {isRTL ? act.reasonAr : act.reasonEn}
                   </p>
                 </div>
@@ -274,7 +274,7 @@ export const RescueModeView: React.FC<RescueModeViewProps> = ({
 
         {plan.actions.length > 0 && (
           <div className="pt-4 border-t border-gray-100 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-[#4B5563] dark:text-gray-400">
               {isRTL
                 ? 'لن يتم حذف أي مهمة حتمية؛ سيتم فقط إعادة جدولة جلسات المذاكرة في التقويم.'
                 : 'No tasks are deleted; calendar study blocks will be rescheduled.'}

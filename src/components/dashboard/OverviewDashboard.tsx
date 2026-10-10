@@ -162,7 +162,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           {/* Stat 1: Active Courses */}
           <div className="clay-card p-6 flex flex-col justify-between bg-white dark:bg-[#1E172A] relative overflow-hidden">
             <div className="space-y-3">
-              <span className="text-xs font-bold text-gray-500 dark:text-gray-400">
+              <span className="text-xs font-bold text-[#6B7280] dark:text-gray-400">
                 {t.stats.totalCourses}
               </span>
               <div className="w-14 h-14 rounded-2xl bg-[#D6C4F7] dark:bg-[#433168] clay-squircle flex items-center justify-center text-[#553896] dark:text-[#D6C4F7] shadow-md">
@@ -173,7 +173,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
               <div className="text-3xl lg:text-4xl font-black text-[#263047] dark:text-white font-mono">
                 {totalCourses}
               </div>
-              <span className="text-[11px] text-gray-400 font-bold mt-1 block">
+              <span className="text-[11px] text-[#6B7280] dark:text-gray-400 font-bold mt-1 block">
                 {isRTL ? 'مقررات مسجلة' : 'Registered Courses'}
               </span>
             </div>
@@ -182,7 +182,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           {/* Stat 2: Tasks Completed */}
           <div className="clay-card p-6 flex flex-col justify-between bg-white dark:bg-[#1E172A] relative overflow-hidden">
             <div className="space-y-3">
-              <span className="text-xs font-bold text-gray-500 dark:text-gray-400">
+              <span className="text-xs font-bold text-[#6B7280] dark:text-gray-400">
                 {t.stats.tasksCompleted}
               </span>
               <div className="w-14 h-14 rounded-2xl bg-[#FFC5B2] dark:bg-[#5C3026] clay-squircle flex items-center justify-center text-[#993A24] dark:text-[#FFC5B2] shadow-md">
@@ -193,7 +193,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
               <div className="text-3xl lg:text-4xl font-black text-[#263047] dark:text-white font-mono">
                 {completedCount}
               </div>
-              <span className="text-[11px] text-gray-400 font-bold mt-1 block">
+              <span className="text-[11px] text-[#6B7280] dark:text-gray-400 font-bold mt-1 block">
                 {isRTL ? `من إجمالي ${tasks.length} مهام` : `of ${tasks.length} total tasks`}
               </span>
             </div>
@@ -202,7 +202,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           {/* Stat 3: Study Hours Logged */}
           <div className="clay-card p-6 flex flex-col justify-between bg-white dark:bg-[#1E172A] relative overflow-hidden">
             <div className="space-y-3">
-              <span className="text-xs font-bold text-gray-500 dark:text-gray-400">
+              <span className="text-xs font-bold text-[#6B7280] dark:text-gray-400">
                 {t.stats.studyHours}
               </span>
               <div className="w-14 h-14 rounded-2xl bg-[#C1ECD1] dark:bg-[#204932] clay-squircle flex items-center justify-center text-[#215E36] dark:text-[#C1ECD1] shadow-md">
@@ -213,7 +213,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
               <div className="text-3xl lg:text-4xl font-black text-[#263047] dark:text-white font-mono">
                 {studyHours}h
               </div>
-              <span className="text-[11px] text-gray-400 font-bold mt-1 block">
+              <span className="text-[11px] text-[#6B7280] dark:text-gray-400 font-bold mt-1 block">
                 {isRTL ? 'مذاكرة موثقة' : 'Logged Sessions'}
               </span>
             </div>
@@ -233,12 +233,12 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
                 <span>{t.sections.activityOverview}</span>
                 <TrendingUp className="w-4 h-4 text-purple-500" />
               </h3>
-              <p className="text-xs text-gray-400 mt-0.5 font-medium">
+              <p className="text-xs text-[#6B7280] dark:text-gray-400 mt-0.5 font-medium">
                 {isRTL ? 'توزيع ساعات المذاكرة وجلسات التركيز هذا الأسبوع' : 'Weekly focus hours and study workload'}
               </p>
             </div>
 
-            <span className="text-xs font-bold px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl shadow-xs">
+            <span className="text-xs font-bold px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-[#374151] dark:text-gray-300 rounded-xl shadow-xs">
               {t.sections.thisWeek}
             </span>
           </div>
@@ -277,7 +277,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
                     </div>
 
                     {/* Day Label */}
-                    <span className="text-[11px] font-bold text-gray-500 dark:text-gray-400 group-hover:text-purple-600 transition-colors">
+                    <span className="text-[11px] font-bold text-[#6B7280] dark:text-gray-400 group-hover:text-purple-600 transition-colors">
                       {day.short}
                     </span>
                   </div>
@@ -290,7 +290,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           <div className="pt-3 border-t border-gray-100 dark:border-gray-800 flex justify-between items-center text-xs">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
-              <span className="text-gray-500 dark:text-gray-400 font-semibold">
+              <span className="text-[#4B5563] dark:text-gray-300 font-semibold">
                 {isRTL ? 'إجمالي المذاكرة الأسبوعية: 24.5 ساعة' : 'Total weekly focus: 24.5 hours'}
               </span>
             </div>
@@ -321,7 +321,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
 
           <div className="space-y-3 flex-1 overflow-y-auto max-h-72">
             {tasks.length === 0 ? (
-              <div className="h-full flex flex-col items-center justify-center text-center p-6 text-xs text-gray-400 space-y-2">
+              <div className="h-full flex flex-col items-center justify-center text-center p-6 text-xs text-[#6B7280] dark:text-gray-400 space-y-2">
                 <span className="text-2xl">📝</span>
                 <p>{t.sections.emptyDashboard}</p>
                 <button
@@ -349,10 +349,10 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
                     </div>
 
                     <div>
-                      <h4 className={`text-xs font-bold text-gray-800 dark:text-gray-200 line-clamp-1 ${task.completed ? 'line-through text-gray-400' : ''}`}>
+                      <h4 className={`text-xs font-bold text-[#263047] dark:text-gray-200 line-clamp-1 ${task.completed ? 'line-through text-[#6B7280] dark:text-gray-500' : ''}`}>
                         {task.title}
                       </h4>
-                      <span className="text-[11px] text-gray-400 font-medium">
+                      <span className="text-[11px] text-[#6B7280] dark:text-gray-400 font-medium">
                         {task.course} · {task.durationMinutes} min
                       </span>
                     </div>
@@ -408,18 +408,18 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
                 />
               </svg>
               <div className="absolute text-center">
-                <span className="text-sm font-black text-gray-800 dark:text-gray-100 font-mono">
+                <span className="text-sm font-black text-[#263047] dark:text-gray-100 font-mono">
                   {tasks.length > 0 ? `${Math.round((completedCount / tasks.length) * 100)}%` : '0%'}
                 </span>
-                <span className="block text-[8px] text-gray-400 font-black uppercase">Rate</span>
+                <span className="block text-[8px] text-[#6B7280] dark:text-gray-400 font-black uppercase">Rate</span>
               </div>
             </div>
 
             <div className="space-y-1 text-xs">
-              <div className="font-bold text-gray-700 dark:text-gray-300">
+              <div className="font-bold text-[#374151] dark:text-gray-300">
                 {completedCount} / {tasks.length} {isRTL ? 'مهام منجزة' : 'tasks done'}
               </div>
-              <div className="text-[11px] text-gray-400 font-medium">
+              <div className="text-[11px] text-[#6B7280] dark:text-gray-400 font-medium">
                 {pendingTasks.length} {isRTL ? 'قيد المتابعة' : 'in queue'}
               </div>
             </div>
@@ -441,7 +441,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
             <h4 className="text-sm font-black text-[#263047] dark:text-gray-100">
               {t.sections.dontForget}
             </h4>
-            <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+            <p className="text-xs text-[#6B7280] dark:text-gray-400 font-medium">
               {t.sections.tasksDueSoon.replace('{count}', String(tasksDueSoon.length))}
             </p>
             <button
@@ -469,7 +469,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
             <h4 className="text-sm font-black text-[#263047] dark:text-gray-100">
               {t.sections.encouragementTitle}
             </h4>
-            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
+            <p className="text-xs text-[#4B5563] dark:text-gray-300 leading-relaxed font-medium">
               {profile.gender === 'female'
                 ? t.sections.encouragementFemale
                 : t.sections.encouragementMale}
@@ -489,7 +489,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
           value={quickInput}
           onChange={(e) => setQuickInput(e.target.value)}
           placeholder={t.sections.quickSmartTalk}
-          className="flex-1 bg-transparent text-xs md:text-sm font-medium text-gray-800 dark:text-gray-100 focus:outline-none"
+          className="flex-1 bg-transparent text-xs md:text-sm font-medium text-[#263047] dark:text-gray-100 placeholder:text-[#9CA3AF] dark:placeholder:text-gray-500 focus:outline-none"
         />
         <button
           type="submit"
