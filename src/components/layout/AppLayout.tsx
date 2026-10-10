@@ -21,8 +21,11 @@ import {
   Moon,
 } from 'lucide-react';
 
-const FEMALE_SIGN_IMG = '/src/assets/images/female_holding_sign_1791662437175.jpg';
-const MALE_SIGN_IMG = '/src/assets/images/male_holding_sign_1791662448013.jpg';
+import femaleSignImg from '../../assets/images/female_holding_sign_1791662437175.jpg';
+import maleSignImg from '../../assets/images/male_holding_sign_1791662448013.jpg';
+
+const FEMALE_SIGN_IMG = femaleSignImg;
+const MALE_SIGN_IMG = maleSignImg;
 
 interface AppLayoutProps {
   profile: UserProfile;

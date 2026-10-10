@@ -1,16 +1,24 @@
 import React from 'react';
 import { Gender, AvatarConfig } from '../../types';
 
+import femaleWelcomeImg from '../../assets/images/clay_student_female_1791657317601.jpg';
+import femaleHoldingSignImg from '../../assets/images/female_holding_sign_1791662437175.jpg';
+import femaleStudyingImg from '../../assets/images/female_studying_1791662458205.jpg';
+
+import maleWelcomeImg from '../../assets/images/clay_student_male_1791657329638.jpg';
+import maleHoldingSignImg from '../../assets/images/male_holding_sign_1791662448013.jpg';
+import maleStudyingImg from '../../assets/images/male_studying_1791662469398.jpg';
+
 const ASSETS = {
   female: {
-    welcome: '/src/assets/images/clay_student_female_1791657317601.jpg',
-    holding_sign: '/src/assets/images/female_holding_sign_1791662437175.jpg',
-    studying: '/src/assets/images/female_studying_1791662458205.jpg',
+    welcome: femaleWelcomeImg,
+    holding_sign: femaleHoldingSignImg,
+    studying: femaleStudyingImg,
   },
   male: {
-    welcome: '/src/assets/images/clay_student_male_1791657329638.jpg',
-    holding_sign: '/src/assets/images/male_holding_sign_1791662448013.jpg',
-    studying: '/src/assets/images/male_studying_1791662469398.jpg',
+    welcome: maleWelcomeImg,
+    holding_sign: maleHoldingSignImg,
+    studying: maleStudyingImg,
   },
 };
 
